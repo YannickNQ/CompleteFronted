@@ -10,5 +10,6 @@ public class Palabra extends Token {
         minus = new Palabra( "minus", Etiqueta.MINUS ),
         True = new Palabra( "true", Etiqueta.TRUE ),
         False = new Palabra( "false", Etiqueta.FALSE ),
-        temp = new Palabra( "t", Etiqueta.TEMP );
+        temp = new Palabra( "t", Etiqueta.TEMP ),
+        commet = new Palabra("commet", Etiqueta.COMMENT);
 }

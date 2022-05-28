@@ -78,6 +78,14 @@ public class Analizador {
             donode.init(s1, x);
             Instr.Circundante = instrGuardada; 
             return donode;
+        case Etiqueta.FOR:
+            For fornode = new For();
+            instrGuardada = Instr.Circundante; Instr.Circundante = fornode;
+            coincidir(Etiqueta.FOR); coincidir('(');s = instr();  x=bool(); coincidir(';'); s1 = instr(); coincidir(')');
+            s2 = instr();
+            fornode.init(s, x, s1, s2);
+            Instr.Circundante = instrGuardada;
+            return fornode;
         case Etiqueta.BREAK:
             coincidir(Etiqueta.BREAK); coincidir(';');
             return new Break();

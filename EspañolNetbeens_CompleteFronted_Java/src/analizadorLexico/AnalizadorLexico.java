@@ -11,6 +11,7 @@ public class AnalizadorLexico {
         reservar( new Palabra("while", Etiqueta.WHILE) );
         reservar( new Palabra("do", Etiqueta.DO) );
         reservar( new Palabra("break", Etiqueta.BREAK) );
+        reservar( new Palabra("for", Etiqueta.FOR) );
         reservar( Palabra.True ); reservar( Palabra.False );
         reservar( Tipo.Int ); reservar( Tipo.Char );
         reservar( Tipo.Bool ); reservar( Tipo.Float );
@@ -41,6 +42,9 @@ public class AnalizadorLexico {
             if( readch('=') ) return Palabra.le; else return new Token('<');
         case '>':
             if( readch('=') ) return Palabra.ge; else return new Token('>');
+        case '/':
+            if( readch('/') ) return Palabra.commet; else return new Token('/');
+        }
         }
         if( Character.isDigit(preanalisis) ) {
             int v = 0;
